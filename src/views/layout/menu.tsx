@@ -8,6 +8,7 @@ import {
 } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Menu } from 'antd';
+import { Link } from 'react-router-dom'; 
 
 type MenuItem = Required<MenuProps>['items'][number];
 
@@ -28,9 +29,9 @@ function getItem(
 }
 
 const items: MenuItem[] = [
-  getItem('首页', '1', <PieChartOutlined />),
+  getItem(<Link to="/guide">首页</Link>, '1', <PieChartOutlined />),
   getItem('账户管理', '2', <MailOutlined />, [
-    getItem('证书账户', '2-5'),
+    getItem(<Link to="/">证书账户</Link>, '2-5'),
     getItem('公钥账户', '2-6'),
   ]),
   getItem('区块链管理', '3', <ContainerOutlined />),

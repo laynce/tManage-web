@@ -1,6 +1,6 @@
 ## 管理平台
 
-本项目是基于 antd搭建的react + ts 管理端项目
+本项目是基于 antd搭建的react + ts管理端项目 
 ## setup
 ```js
   npm install

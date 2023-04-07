@@ -1,59 +1,40 @@
-import React,{useState} from 'react';
-import { UploadOutlined } from '@ant-design/icons';
-import type { UploadProps } from 'antd';
-import { Button, message, Upload, Modal } from 'antd';
-
-
+import React from 'react';
+import { Tabs } from 'antd';
+import type { TabsProps } from 'antd';
+import { Orangze } from "./components/Orangze";
 
 const App: React.FC = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const showModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleOk = () => {
-    setIsModalOpen(false);
-  };
-
-  const handleCancel = () => {
-    setIsModalOpen(false);
-  };
-
-  const props: UploadProps = {
-    name: 'file',
-    action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
-    headers: {
-      authorization: 'authorization-text',
+  const items: TabsProps['items'] = [
+    {
+      key: '1',
+      label: `组织证书`,
+      children: <Orangze></Orangze>,
     },
-    onChange(info) {
-      if (info.file.status !== 'uploading') {
-        console.log(info.file, info.fileList);
-      }
-      if (info.file.status === 'done') {
-        message.success(`${info.file.name} file uploaded successfully`);
-      } else if (info.file.status === 'error') {
-        message.error(`${info.file.name} file upload failed.`);
-      }
+    {
+      key: '2',
+      label: `节点证书`,
+      children: <Orangze search="nodeType"></Orangze>,
     },
-  };
+    {
+      key: '3',
+      label: `用户证书`,
+      children: <Orangze search="nodeType2"></Orangze>,
+    },
+  ];
+
+  const onChange = (key: String)=> {
+
+  }
+
   return (
     <div>
-      <Button type="primary" onClick={showModal}>
-        Open Modal
-      </Button>
-      <Modal title="Basic Modal" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-
-        <Upload {...props}>
-          <Button icon={<UploadOutlined />}>Click to Upload</Button>
-        </Upload>
-      </Modal>
+      <h3 >证书账户</h3>
+      <Tabs defaultActiveKey="1" items={items} onChange={onChange} />
     </div>
 
   )
 };
 
 export default App;
+

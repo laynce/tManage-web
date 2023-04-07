@@ -1,11 +1,10 @@
-import { Link} from 'react-router-dom'
+
 export default function Guide() {
 
-  // const navigate = useNavigate()
   return (
     <>
-      欢迎
-      <Link to='/page2'>跳转</Link>
+      <h3>向导页</h3>
+      <p>人生总有些不期而遇，未完待续...</p>
     </>
   )
 }

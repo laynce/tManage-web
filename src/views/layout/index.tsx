@@ -94,7 +94,13 @@ export default function Lay() {
               }>
                 <Menu />
               </Sider>
-            <Content><Outlet></Outlet></Content>
+              <Content>
+                <div className="layout">
+                  <div className='container pd-20 bg-efefef'>
+                    <Outlet></Outlet>
+                  </div>
+                </div>
+            </Content>
           </Layout>
         </Layout>
         )

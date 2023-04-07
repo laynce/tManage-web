@@ -9,3 +9,11 @@ export type LoginParams = {
   Password: string
   Captcha: string
 }
+
+export interface OrangzeParam {
+  Type: number,
+  OrgName: string,
+  PageNum: number,
+  PageSize: number,
+   ChainMode: string
+} 
